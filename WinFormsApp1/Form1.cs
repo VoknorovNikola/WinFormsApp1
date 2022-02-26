@@ -7,16 +7,16 @@ namespace WinFormsApp1
             InitializeComponent();
         }
         string[] textData;
-        bool active = false;
+        bool isTextModified = false;
 
         public void textProcess()
         {
-            while (active)
+            while (isTextModified)
             {
 
                Random Rand = new Random();
                int stringNumber = Rand.Next(0, textData.Length);
-               textData[stringNumber] = textData[stringNumber].Insert(new Random().Next(0, textData[stringNumber].Length), textImput.Text);
+               textData[stringNumber] = textData[stringNumber].Insert(new Random().Next(0, textData[stringNumber].Length), insertTextInput.Text);
                if (textViewer.InvokeRequired)
                {
                 textViewer.Invoke(new Action(() => textViewer.Items.Clear()));
@@ -45,16 +45,16 @@ namespace WinFormsApp1
 
         private void bSwitch_Click(object sender, EventArgs e)
         {
-            if (!active)
+            if (!isTextModified)
             {
-               if ((textViewer.Items.Count == 0)||(String.IsNullOrEmpty(textImput.Text)))
+               if ((textViewer.Items.Count == 0)||(String.IsNullOrEmpty(insertTextInput.Text)))
                   MessageBox.Show("Невозможно запустить программу пока не будет загружен не пустой TXT файл и не заполненно поле ввода");
                else
                {
                     StartStopButton.Text = "Стоп";
                     LoadDataButton.Enabled = false;
-                    textImput.Enabled = false;
-                    active = true;
+                    insertTextInput.Enabled = false;
+                    isTextModified = true;
                     Thread textProcessThread = new Thread(textProcess);
                     textProcessThread.IsBackground = true;
                     textProcessThread.Start();
@@ -63,9 +63,9 @@ namespace WinFormsApp1
             else
             {
                 StartStopButton.Text = "Старт";
-                active = false;
+                isTextModified = false;
                 LoadDataButton.Enabled = true;
-                textImput.Enabled = true;
+                insertTextInput.Enabled = true;
 
             }
 
@@ -73,7 +73,7 @@ namespace WinFormsApp1
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            active = false;
+            isTextModified = false;
 
         }
 

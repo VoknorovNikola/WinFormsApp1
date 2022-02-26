@@ -30,7 +30,7 @@
         {
             this.StartStopButton = new System.Windows.Forms.Button();
             this.LoadDataButton = new System.Windows.Forms.Button();
-            this.textImput = new System.Windows.Forms.TextBox();
+            this.insertTextInput = new System.Windows.Forms.TextBox();
             this.textViewer = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -57,10 +57,10 @@
             // 
             // textBox
             // 
-            this.textImput.Location = new System.Drawing.Point(558, 206);
-            this.textImput.Name = "textBox";
-            this.textImput.Size = new System.Drawing.Size(214, 23);
-            this.textImput.TabIndex = 2;
+            this.insertTextInput.Location = new System.Drawing.Point(558, 206);
+            this.insertTextInput.Name = "textBox";
+            this.insertTextInput.Size = new System.Drawing.Size(214, 23);
+            this.insertTextInput.TabIndex = 2;
             // 
             // listBox1
             // 
@@ -91,7 +91,7 @@
             this.ClientSize = new System.Drawing.Size(784, 461);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textViewer);
-            this.Controls.Add(this.textImput);
+            this.Controls.Add(this.insertTextInput);
             this.Controls.Add(this.LoadDataButton);
             this.Controls.Add(this.StartStopButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -108,7 +108,7 @@
 
         private Button StartStopButton;
         private Button LoadDataButton;
-        private TextBox textImput;
+        private TextBox insertTextInput;
         private ListBox textViewer;
         private Label label1;
     }
