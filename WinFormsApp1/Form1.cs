@@ -30,9 +30,9 @@ namespace WinFormsApp1
         private void bLoad_Click(object sender, EventArgs e)
         {
             OpenFileDialog openTXTfileDialog = new OpenFileDialog();
-            openTXTfileDialog.Title = "Выберете файл";
+            openTXTfileDialog.Title = "Р’С‹Р±РµСЂРµС‚Рµ С„Р°Р№Р»";
             openTXTfileDialog.InitialDirectory = @"C:\";
-            openTXTfileDialog.Filter = "текстовые файлы (*.txt)|*.txt;|Все файлы|*.*";
+            openTXTfileDialog.Filter = "С‚РµРєСЃС‚РѕРІС‹Рµ С„Р°Р№Р»С‹ (*.txt)|*.txt;|Р’СЃРµ С„Р°Р№Р»С‹|*.*";
             if (openTXTfileDialog.ShowDialog() == DialogResult.OK)
             {
                 textData = File.ReadAllLines(openTXTfileDialog.FileName);
@@ -48,10 +48,10 @@ namespace WinFormsApp1
             if (!active)
             {
                if ((textViewer.Items.Count == 0)||(String.IsNullOrEmpty(textImput.Text)))
-                  MessageBox.Show("Невозможно запустить программу пока не будет загружен не пустой TXT файл и не заполненно поле ввода");
+                  MessageBox.Show("РќРµРІРѕР·РјРѕР¶РЅРѕ Р·Р°РїСѓСЃС‚РёС‚СЊ РїСЂРѕРіСЂР°РјРјСѓ РїРѕРєР° РЅРµ Р±СѓРґРµС‚ Р·Р°РіСЂСѓР¶РµРЅ РЅРµ РїСѓСЃС‚РѕР№ TXT С„Р°Р№Р» Рё РЅРµ Р·Р°РїРѕР»РЅРµРЅРЅРѕ РїРѕР»Рµ РІРІРѕРґР°");
                else
                {
-                    StartStopButton.Text = "Стоп";
+                    StartStopButton.Text = "РЎС‚РѕРї";
                     LoadDataButton.Enabled = false;
                     textImput.Enabled = false;
                     active = true;
@@ -62,7 +62,7 @@ namespace WinFormsApp1
             }
             else
             {
-                StartStopButton.Text = "Старт";
+                StartStopButton.Text = "РЎС‚Р°СЂС‚";
                 active = false;
                 LoadDataButton.Enabled = true;
                 textImput.Enabled = true;
