@@ -30,7 +30,7 @@
         {
             this.StartStopButton = new System.Windows.Forms.Button();
             this.LoadTextFileButton = new System.Windows.Forms.Button();
-            this.insertTextInput = new System.Windows.Forms.TextBox();
+            this.InsertTextInput = new System.Windows.Forms.TextBox();
             this.textViewer = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -57,10 +57,10 @@
             // 
             // textBox
             // 
-            this.insertTextInput.Location = new System.Drawing.Point(558, 206);
-            this.insertTextInput.Name = "textBox";
-            this.insertTextInput.Size = new System.Drawing.Size(214, 23);
-            this.insertTextInput.TabIndex = 2;
+            this.InsertTextInput.Location = new System.Drawing.Point(558, 206);
+            this.InsertTextInput.Name = "textBox";
+            this.InsertTextInput.Size = new System.Drawing.Size(214, 23);
+            this.InsertTextInput.TabIndex = 2;
             // 
             // listBox1
             // 
@@ -91,7 +91,7 @@
             this.ClientSize = new System.Drawing.Size(784, 461);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textViewer);
-            this.Controls.Add(this.insertTextInput);
+            this.Controls.Add(this.InsertTextInput);
             this.Controls.Add(this.LoadTextFileButton);
             this.Controls.Add(this.StartStopButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -108,7 +108,7 @@
 
         private Button StartStopButton;
         private Button LoadTextFileButton;
-        private TextBox insertTextInput;
+        private TextBox InsertTextInput;
         private ListBox textViewer;
         private Label label1;
     }
