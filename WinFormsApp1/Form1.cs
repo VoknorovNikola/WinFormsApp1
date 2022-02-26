@@ -6,7 +6,7 @@ namespace WinFormsApp1
         {
             InitializeComponent();
         }
-        string[] textArray;
+        string[] textData;
         bool active = false;
 
         public void textProcess()
@@ -15,12 +15,12 @@ namespace WinFormsApp1
             {
 
                Random Rand = new Random();
-               int kuda = Rand.Next(0, textArray.Length);
-               textArray[kuda] = textArray[kuda].Insert(new Random().Next(0, textArray[kuda].Length), textBox.Text);
-               if (listBox1.InvokeRequired)
+               int stringNumber = Rand.Next(0, textData.Length);
+               textData[stringNumber] = textData[stringNumber].Insert(new Random().Next(0, textData[stringNumber].Length), textImput.Text);
+               if (textViewer.InvokeRequired)
                {
-                listBox1.Invoke(new Action(() => listBox1.Items.Clear()));
-                listBox1.Invoke(new Action(() => listBox1.Items.AddRange(textArray)));
+                textViewer.Invoke(new Action(() => textViewer.Items.Clear()));
+                textViewer.Invoke(new Action(() => textViewer.Items.AddRange(textData)));
                }
                Thread.Sleep(5000);
             }
@@ -29,15 +29,15 @@ namespace WinFormsApp1
 
         private void bLoad_Click(object sender, EventArgs e)
         {
-            OpenFileDialog Fd = new OpenFileDialog();
-            Fd.Title = "Выберете файл";
-            Fd.InitialDirectory = @"C:\";
-            Fd.Filter = "текстовые файлы (*.txt)|*.txt;|Все файлы|*.*";
-            if (Fd.ShowDialog() == DialogResult.OK)
+            OpenFileDialog openTXTfileDialog = new OpenFileDialog();
+            openTXTfileDialog.Title = "Выберете файл";
+            openTXTfileDialog.InitialDirectory = @"C:\";
+            openTXTfileDialog.Filter = "текстовые файлы (*.txt)|*.txt;|Все файлы|*.*";
+            if (openTXTfileDialog.ShowDialog() == DialogResult.OK)
             {
-                textArray = File.ReadAllLines(Fd.FileName);
-                listBox1.Items.Clear();
-                listBox1.Items.AddRange(textArray);
+                textData = File.ReadAllLines(openTXTfileDialog.FileName);
+                textViewer.Items.Clear();
+                textViewer.Items.AddRange(textData);
             }
 
         }
@@ -47,13 +47,13 @@ namespace WinFormsApp1
         {
             if (!active)
             {
-               if ((listBox1.Items.Count == 0)||(String.IsNullOrEmpty(textBox.Text)))
+               if ((textViewer.Items.Count == 0)||(String.IsNullOrEmpty(textImput.Text)))
                   MessageBox.Show("Невозможно запустить программу пока не будет загружен не пустой TXT файл и не заполненно поле ввода");
                else
                {
-                    bSwitch.Text = "Стоп";
-                    bLoad.Enabled = false;
-                    textBox.Enabled = false;
+                    StartStopButton.Text = "Стоп";
+                    LoadDataButton.Enabled = false;
+                    textImput.Enabled = false;
                     active = true;
                     Thread textProcessThread = new Thread(textProcess);
                     textProcessThread.IsBackground = true;
@@ -62,10 +62,10 @@ namespace WinFormsApp1
             }
             else
             {
-                bSwitch.Text = "Старт";
+                StartStopButton.Text = "Старт";
                 active = false;
-                bLoad.Enabled = true;
-                textBox.Enabled = true;
+                LoadDataButton.Enabled = true;
+                textImput.Enabled = true;
 
             }
 

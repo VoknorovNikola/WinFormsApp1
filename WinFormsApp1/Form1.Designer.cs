@@ -28,50 +28,50 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.bSwitch = new System.Windows.Forms.Button();
-            this.bLoad = new System.Windows.Forms.Button();
-            this.textBox = new System.Windows.Forms.TextBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.StartStopButton = new System.Windows.Forms.Button();
+            this.LoadDataButton = new System.Windows.Forms.Button();
+            this.textImput = new System.Windows.Forms.TextBox();
+            this.textViewer = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // bSwitch
             // 
-            this.bSwitch.Location = new System.Drawing.Point(558, 235);
-            this.bSwitch.Name = "bSwitch";
-            this.bSwitch.Size = new System.Drawing.Size(214, 23);
-            this.bSwitch.TabIndex = 0;
-            this.bSwitch.Text = "Старт";
-            this.bSwitch.UseVisualStyleBackColor = true;
-            this.bSwitch.Click += new System.EventHandler(this.bSwitch_Click);
+            this.StartStopButton.Location = new System.Drawing.Point(558, 235);
+            this.StartStopButton.Name = "bSwitch";
+            this.StartStopButton.Size = new System.Drawing.Size(214, 23);
+            this.StartStopButton.TabIndex = 0;
+            this.StartStopButton.Text = "Старт";
+            this.StartStopButton.UseVisualStyleBackColor = true;
+            this.StartStopButton.Click += new System.EventHandler(this.bSwitch_Click);
             // 
             // bLoad
             // 
-            this.bLoad.Location = new System.Drawing.Point(558, 12);
-            this.bLoad.Name = "bLoad";
-            this.bLoad.Size = new System.Drawing.Size(214, 23);
-            this.bLoad.TabIndex = 1;
-            this.bLoad.Text = "Открыть *.TXT";
-            this.bLoad.UseVisualStyleBackColor = true;
-            this.bLoad.Click += new System.EventHandler(this.bLoad_Click);
+            this.LoadDataButton.Location = new System.Drawing.Point(558, 12);
+            this.LoadDataButton.Name = "bLoad";
+            this.LoadDataButton.Size = new System.Drawing.Size(214, 23);
+            this.LoadDataButton.TabIndex = 1;
+            this.LoadDataButton.Text = "Открыть *.TXT";
+            this.LoadDataButton.UseVisualStyleBackColor = true;
+            this.LoadDataButton.Click += new System.EventHandler(this.bLoad_Click);
             // 
             // textBox
             // 
-            this.textBox.Location = new System.Drawing.Point(558, 206);
-            this.textBox.Name = "textBox";
-            this.textBox.Size = new System.Drawing.Size(214, 23);
-            this.textBox.TabIndex = 2;
+            this.textImput.Location = new System.Drawing.Point(558, 206);
+            this.textImput.Name = "textBox";
+            this.textImput.Size = new System.Drawing.Size(214, 23);
+            this.textImput.TabIndex = 2;
             // 
             // listBox1
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.HorizontalScrollbar = true;
-            this.listBox1.ItemHeight = 15;
-            this.listBox1.Location = new System.Drawing.Point(12, 12);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.ScrollAlwaysVisible = true;
-            this.listBox1.Size = new System.Drawing.Size(532, 439);
-            this.listBox1.TabIndex = 3;
+            this.textViewer.FormattingEnabled = true;
+            this.textViewer.HorizontalScrollbar = true;
+            this.textViewer.ItemHeight = 15;
+            this.textViewer.Location = new System.Drawing.Point(12, 12);
+            this.textViewer.Name = "listBox1";
+            this.textViewer.ScrollAlwaysVisible = true;
+            this.textViewer.Size = new System.Drawing.Size(532, 439);
+            this.textViewer.TabIndex = 3;
             // 
             // label1
             // 
@@ -90,10 +90,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 461);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.textBox);
-            this.Controls.Add(this.bLoad);
-            this.Controls.Add(this.bSwitch);
+            this.Controls.Add(this.textViewer);
+            this.Controls.Add(this.textImput);
+            this.Controls.Add(this.LoadDataButton);
+            this.Controls.Add(this.StartStopButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximumSize = new System.Drawing.Size(800, 500);
             this.MinimumSize = new System.Drawing.Size(800, 500);
@@ -106,10 +106,10 @@
 
         #endregion
 
-        private Button bSwitch;
-        private Button bLoad;
-        private TextBox textBox;
-        private ListBox listBox1;
+        private Button StartStopButton;
+        private Button LoadDataButton;
+        private TextBox textImput;
+        private ListBox textViewer;
         private Label label1;
     }
 }
