@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.StartStopButton = new System.Windows.Forms.Button();
-            this.LoadDataButton = new System.Windows.Forms.Button();
+            this.LoadTextFileButton = new System.Windows.Forms.Button();
             this.insertTextInput = new System.Windows.Forms.TextBox();
             this.textViewer = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -43,17 +43,17 @@
             this.StartStopButton.TabIndex = 0;
             this.StartStopButton.Text = "Старт";
             this.StartStopButton.UseVisualStyleBackColor = true;
-            this.StartStopButton.Click += new System.EventHandler(this.bSwitch_Click);
+            this.StartStopButton.Click += new System.EventHandler(this.StartStopButton_Click);
             // 
             // bLoad
             // 
-            this.LoadDataButton.Location = new System.Drawing.Point(558, 12);
-            this.LoadDataButton.Name = "bLoad";
-            this.LoadDataButton.Size = new System.Drawing.Size(214, 23);
-            this.LoadDataButton.TabIndex = 1;
-            this.LoadDataButton.Text = "Открыть *.TXT";
-            this.LoadDataButton.UseVisualStyleBackColor = true;
-            this.LoadDataButton.Click += new System.EventHandler(this.bLoad_Click);
+            this.LoadTextFileButton.Location = new System.Drawing.Point(558, 12);
+            this.LoadTextFileButton.Name = "bLoad";
+            this.LoadTextFileButton.Size = new System.Drawing.Size(214, 23);
+            this.LoadTextFileButton.TabIndex = 1;
+            this.LoadTextFileButton.Text = "Открыть *.TXT";
+            this.LoadTextFileButton.UseVisualStyleBackColor = true;
+            this.LoadTextFileButton.Click += new System.EventHandler(this.LoadTextFileButton_Click);
             // 
             // textBox
             // 
@@ -92,7 +92,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textViewer);
             this.Controls.Add(this.insertTextInput);
-            this.Controls.Add(this.LoadDataButton);
+            this.Controls.Add(this.LoadTextFileButton);
             this.Controls.Add(this.StartStopButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximumSize = new System.Drawing.Size(800, 500);
@@ -107,7 +107,7 @@
         #endregion
 
         private Button StartStopButton;
-        private Button LoadDataButton;
+        private Button LoadTextFileButton;
         private TextBox insertTextInput;
         private ListBox textViewer;
         private Label label1;

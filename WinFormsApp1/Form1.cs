@@ -7,11 +7,11 @@ namespace WinFormsApp1
             InitializeComponent();
         }
         string[] textData;
-        bool isTextModified = false;
+        bool ModifyText = false;
 
         public void textProcess()
         {
-            while (isTextModified)
+            while (ModifyText)
             {
 
                Random Rand = new Random();
@@ -27,15 +27,15 @@ namespace WinFormsApp1
 
         }
 
-        private void bLoad_Click(object sender, EventArgs e)
+        private void LoadTextFileButton_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openTXTfileDialog = new OpenFileDialog();
-            openTXTfileDialog.Title = "Выберете файл";
-            openTXTfileDialog.InitialDirectory = @"C:\";
-            openTXTfileDialog.Filter = "текстовые файлы (*.txt)|*.txt;|Все файлы|*.*";
-            if (openTXTfileDialog.ShowDialog() == DialogResult.OK)
+            OpenFileDialog openTextFileDialog = new OpenFileDialog();
+            openTextFileDialog.Title = "Выберете файл";
+            openTextFileDialog.InitialDirectory = @"C:\";
+            openTextFileDialog.Filter = "текстовые файлы (*.txt)|*.txt;|Все файлы|*.*";
+            if (openTextFileDialog.ShowDialog() == DialogResult.OK)
             {
-                textData = File.ReadAllLines(openTXTfileDialog.FileName);
+                textData = File.ReadAllLines(openTextFileDialog.FileName);
                 textViewer.Items.Clear();
                 textViewer.Items.AddRange(textData);
             }
@@ -43,18 +43,18 @@ namespace WinFormsApp1
         }
 
 
-        private void bSwitch_Click(object sender, EventArgs e)
+        private void StartStopButton_Click(object sender, EventArgs e)
         {
-            if (!isTextModified)
+            if (!ModifyText)
             {
                if ((textViewer.Items.Count == 0)||(String.IsNullOrEmpty(insertTextInput.Text)))
                   MessageBox.Show("Невозможно запустить программу пока не будет загружен не пустой TXT файл и не заполненно поле ввода");
                else
                {
                     StartStopButton.Text = "Стоп";
-                    LoadDataButton.Enabled = false;
+                    LoadTextFileButton.Enabled = false;
                     insertTextInput.Enabled = false;
-                    isTextModified = true;
+                    ModifyText = true;
                     Thread textProcessThread = new Thread(textProcess);
                     textProcessThread.IsBackground = true;
                     textProcessThread.Start();
@@ -63,8 +63,8 @@ namespace WinFormsApp1
             else
             {
                 StartStopButton.Text = "Старт";
-                isTextModified = false;
-                LoadDataButton.Enabled = true;
+                ModifyText = false;
+                LoadTextFileButton.Enabled = true;
                 insertTextInput.Enabled = true;
 
             }
@@ -73,7 +73,7 @@ namespace WinFormsApp1
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            isTextModified = false;
+            ModifyText = false;
 
         }
 
